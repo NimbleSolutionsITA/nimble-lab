@@ -10,6 +10,7 @@ import getAvailabilityPickerServerProps from "@/hooks/getAvailabilityPickerServe
 import {useState} from "react";
 import LogoFullWhite from "@/components/logo/Logo-full-white";
 import KeyboardButton from "@/components/KeyboardButton";
+import Logo from "@/components/logo/Logo";
 
 export type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
@@ -18,12 +19,17 @@ function Page(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [openCalendar, setOpenCalendar] = useState(false)
   return openCalendar ? (
     <div className="max-w-2xl sm:mx-auto mx-4 pb-24">
+      <Logo
+          onClick={() => setOpenCalendar(false)}
+          width="50px"
+          style={{position: "absolute", top: "32px", right: "32px", cursor: "pointer"}}
+      />
       <Template />
       <AvailabilityPicker slots={slots} />
     </div>
   ) : (
-    <div className="text-center flex flex-col items-center justify-center p-8 max-w-4xl mx-auto h-screen">
-      <LogoFullWhite width="100%" style={{maxWidth: "500px"}}/>
+    <div className="text-center md:flex flex-col items-center justify-center p-8 max-w-4xl mx-auto h-screen xs:block">
+      <LogoFullWhite width="100%" style={{maxWidth: "500px", margin: "0 auto"}} glow={{logo: true, letters: false}}/>
       <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl mt-10">
           Soluzioni Digitali Innovative per il tuo business
       </h1>

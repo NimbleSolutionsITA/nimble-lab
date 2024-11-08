@@ -69,8 +69,8 @@ export default function BookingForm() {
         <input type="hidden" name="duration" value={duration} />
         <input type="hidden" name="timeZone" value={timeZone} />
 
-        <div className="border-l-4 border-l-accent-600 bg-gray-800 p-3 mt-3 mb-4 rounded-md">
-          <p className="text-sm md:text-base font-semibold text-accent-600">
+        <div className="border-l-4 border-l-accent-400 bg-gray-800 p-3 mt-3 mb-4 rounded-md">
+          <p className="text-sm md:text-base font-semibold text-accent-400">
             {dateString}
           </p>
           <p className="text-xs md:text-sm">
@@ -80,7 +80,7 @@ export default function BookingForm() {
 
         <div className="flex flex-col space-y-4">
           <div className="isolate -space-y-px rounded-md shadow-sm">
-            <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-700 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
+            <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-700 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-400">
               <label
                 htmlFor="name"
                 className="block text-xs font-medium text-gray-500">
@@ -99,7 +99,7 @@ export default function BookingForm() {
                 placeholder="Mario Rossi"
               />
             </div>
-            <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-700 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
+            <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-700 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-400">
               <label
                 htmlFor="email"
                 className="block text-xs font-medium text-gray-500">
@@ -130,7 +130,7 @@ export default function BookingForm() {
                       type="radio"
                       value={location.value}
                       defaultChecked={location.value === locations[0].value}
-                      className="h-4 w-4 border-gray-300 text-accent-600 focus:ring-accent-600"
+                      className="h-4 w-4 border-gray-300 text-accent-500 focus:ring-accent-400"
                     />
                     <label
                       htmlFor={location.value}
@@ -152,7 +152,7 @@ export default function BookingForm() {
           <button
             type="submit"
             disabled={modal === "busy"}
-            className="inline-flex w-full justify-center rounded-md bg-accent-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-700 sm:ml-3 sm:w-auto disabled:opacity-50">
+            className="inline-flex w-full justify-center rounded-md bg-accent-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-400 sm:ml-3 sm:w-auto disabled:opacity-50">
             {modal === "busy" ? (
               <>
                 Invio in corso ... <Spinner className="ml-2" />

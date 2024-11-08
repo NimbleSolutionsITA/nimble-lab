@@ -1,5 +1,11 @@
 import * as React from "react";
-const LogoFullWhite = (props: React.SVGProps<SVGSVGElement>) => (
+type LogoFullWhiteProps = React.SVGProps<SVGSVGElement> & {
+	glow?: {
+		letters: boolean
+		logo: boolean
+	},
+};
+const LogoFullWhite = ({glow, ...props}: LogoFullWhiteProps) => (
 	<svg
 		id="gx-logo"
 		xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +77,7 @@ const LogoFullWhite = (props: React.SVGProps<SVGSVGElement>) => (
 			`}
 		</style>
 		<g>
-			<g>
+			<g {...(glow?.letters ? {className: "glow"} : {})}>
 				<path className="st1" d="M74,327.08v-61.5c0-9.87-2.02-17.45-6-22.54c-3.75-4.79-9.11-7.12-16.38-7.12c-9.71,0-22.61,3.17-22.61,30.61
 			v60.56H0V261.3c0-15.98,4.76-29.12,14.15-39.06c9.46-10.02,22.15-15.1,37.71-15.1c15.25,0,27.74,5.04,37.11,14.98
 			c9.31,9.86,14.03,22.96,14.03,38.93v66.02H74z"/>
@@ -97,7 +103,7 @@ const LogoFullWhite = (props: React.SVGProps<SVGSVGElement>) => (
 			c0,16.99,6.05,31.57,17.98,43.33c11.91,11.74,26.47,17.7,43.27,17.7c30.84,0,51.23-16.23,60.6-48.23l1.12-3.84L607.79,264.95z"/>
 			</g>
 			<g>
-				<path className="st1 glow" d="M825.23,49.2l-97.61,48.46L679.24,0l-23.28,69.09l0,0l-7.92,23.49l48.77,96.4l-0.02,0.05l0.03-0.02l0.02,0.03
+				<path className={`st1 ${glow?.logo && "glow"}`} d="M825.23,49.2l-97.61,48.46L679.24,0l-23.28,69.09l0,0l-7.92,23.49l48.77,96.4l-0.02,0.05l0.03-0.02l0.02,0.03
 			l0.02-0.05l97.17-47.22l7.92-23.49h0L825.23,49.2z"/>
 				<polygon className="st2" points="825.23,49.2 727.62,97.65 679.24,0 655.68,69.93 704.45,166.33 704.43,166.38 704.46,166.36
 			704.48,166.39 704.5,166.34 801.66,119.12 		"/>
@@ -106,7 +112,7 @@ const LogoFullWhite = (props: React.SVGProps<SVGSVGElement>) => (
 				<polygon className="st3" points="704.37,166.72 727.52,155.23 710.21,149.39 710.16,149.38 692.84,143.54 704.32,166.71 704.3,166.76
 			704.33,166.74 704.35,166.77 		"/>
 			</g>
-			<g>
+			<g {...(glow?.letters ? {className: "glow"} : {})}>
 				<path className="st1" d="M678.62,329.84h-14.38V155.07l13.86,29.22L678.62,329.84z"/>
 				<path className="st1" d="M772.82,327.03h-14.61v-45.45c0-12.79-2.64-23.03-7.91-30.71c-5.29-7.69-12.38-11.53-21.32-11.53
 			c-8.08,0-14.89,3.5-20.48,10.5c-5.59,7.01-8.38,15.53-8.38,25.58c0,10.05,2.79,18.49,8.38,25.35
