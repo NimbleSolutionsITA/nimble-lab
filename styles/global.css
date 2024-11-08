@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply antialiased scroll-smooth;
+  text-rendering: optimizeLegibility;
+  background-color: #121212;
+}
